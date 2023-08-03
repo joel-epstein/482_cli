@@ -37,18 +37,18 @@ Edge: gsl.#Edge & {
 					#options: {
 						provider_host: "https://iam2.greymatter.io"
 						clientId:      "greymatter"
-						clientSecret:  "8Fg2f1zA0Ali3Q998Eks0v3j9I4cD8wDfoobar"
+						// clientSecret:  "8Fg2f1zA0Ali3Q998Eks0v3j9I4cD8wDfoobar"
 						serviceUrl:    "https://staging-01-team-b.greymatter.io:10809"
 						realm:         "GAT"
 						provider_cluster: remote_jwks_upstream
 					}
-					// #secrets: {
-					// 	client_secret: gsl.#KubernetesSecret & {
-					// 	namespace: globals.globals.namespace
-					// 	name:      "a-secret"
-					// 	key:       "client-secret"
-					// 	}
-					// }
+					#secrets: {
+						client_secret: gsl.#KubernetesSecret & {
+						namespace: globals.globals.namespace
+						name:      "a-secret"
+						key:       "client-secret"
+						}
+					}
 				},
 			]
 

@@ -38,7 +38,7 @@ Edge: gsl.#Edge & {
 			// 			provider_host: "https://iam2.greymatter.io"
 			// 			clientId:      "greymatter"
 			// 			// clientSecret:  "8Fg2f1zA0Ali3Q998Eks0v3j9I4cD8wDfoobar"
-			// 			serviceUrl:    "https://staging-01-team-b.greymatter.io:10809"
+			// 			serviceUrl:    "http://20.246.172.16:10809"
 			// 			realm:         "GAT"
 			// 			provider_cluster: remote_jwks_upstream
 			// 		}

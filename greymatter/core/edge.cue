@@ -12,7 +12,7 @@ import (
 )
 
 // global name for remote_jwks clusters
-let remote_jwks_upstream = "remote_jwks"
+// let remote_jwks_upstream = "remote_jwks"
 
 Edge: gsl.#Edge & {
 	// A context provides global information from globals.cue
@@ -33,15 +33,15 @@ Edge: gsl.#Edge & {
 			gsl.#HTTPListener
 			port: 10809
 			filters: [
-				gsl.#OIDCPipelineFilter & {
-					#options: {
-						provider_host: "https://iam2.greymatter.io"
-						clientId:      "greymatter"
-						clientSecret:  "8Fg2f1zA0Ali3Q998Eks0v3j9I4cD8wD"
-						serviceUrl:    "https://staging-01-team-b.greymatter.io:10809"
-						realm:         "GAT"
-						provider_cluster: remote_jwks_upstream
-					}
+				// gsl.#OIDCPipelineFilter & {
+				// 	#options: {
+				// 		provider_host: "https://iam2.greymatter.io"
+				// 		clientId:      "greymatter"
+				// 		clientSecret:  "8Fg2f1zA0Ali3Q998Eks0v3j9I4cD8wD"
+				// 		serviceUrl:    "https://staging-01-team-b.greymatter.io:10809"
+				// 		realm:         "GAT"
+				// 		provider_cluster: remote_jwks_upstream
+				// 	}
 			// 		#secrets: {
 			// 			client_secret: gsl.#KubernetesSecret & {
 			// 			namespace: globals.globals.namespace
@@ -49,7 +49,7 @@ Edge: gsl.#Edge & {
 			// 			key:       "client-secret"
 			// 			}
 			// 		}
-				},
+				// },
 			]
 
 				

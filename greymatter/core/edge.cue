@@ -11,6 +11,9 @@ import (
 	"blahblah.module/greymatter:globals"
 )
 
+// global name for remote_jwks clusters
+let remote_jwks_upstream = "remote_jwks"
+
 Edge: gsl.#Edge & {
 	// A context provides global information from globals.cue
 	// to your service definitions.

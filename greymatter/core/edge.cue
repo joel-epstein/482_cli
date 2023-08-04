@@ -26,6 +26,28 @@ Edge: gsl.#Edge & {
 	business_impact:   "high"
 	owner:             "Blahblah"
 	capability:        ""
+
+	raw_upstreams: {
+		(remote_jwks_upstream): {
+			gsl.#Upstream
+			gsl.#TLSUpstream & {
+				ssl_config: {
+					cert_key_pairs: [
+						{
+							certificate_path: "/etc/proxy/tls/iam2/server.crt"
+							key_path:         "/etc/proxy/tls/iam2/server.key"
+						},
+					]
+				}
+			}
+			instances: [
+				{
+				    host: "iam2.greymatter.io"
+				    port: 443
+				}
+			]
+		}
+    }
 	
 	ingress: {
 		// Edge -> HTTP ingress to your container
@@ -42,46 +64,16 @@ Edge: gsl.#Edge & {
 						realm:         "GAT"
 						provider_cluster: remote_jwks_upstream
 					}
-					// #secrets: {
-					// 	client_secret: gsl.#KubernetesSecret & {
-					// 	namespace: globals.globals.namespace
-					// 	name:      "a-secret"
-					// 	key:       "client-secret"
-					// 	}
-					// }
+					#secrets: {
+						client_secret: gsl.#KubernetesSecret & {
+						namespace: globals.globals.namespace
+						name:      "a-secret"
+						key:       "client-secret"
+						}
+					}
 				},
 			]
 		}
-	}
-
-	egress: {
-		"to-keycloak": {
-			gsl.#HTTPListener
-			port: 8443
-			routes: {
-				"/": {
-					upstreams: {
-						"edge-to-keycloak": {
-							gsl.#Upstream
-							gsl.#TLSUpstream
-							"instances": [
-								{
-									"host": iam2.greymatter.io
-									"port": 443
-								},
-							]
-							ssl_config: {
-								trust_file: ""
-								sni:        iam2.greymatter.io
-								protocols: [
-									"TLSv1_2",
-								]
-							}
-						}
-					}
-				}
-			}
-}
 	}
 }
 

@@ -44,6 +44,14 @@ spec:
             requests:
               cpu: 100m
               memory: 128Mi
+          volumeMounts:
+            - name: iam2-certs
+              mountPath: /etc/proxy/tls/iam2
+      volumes:
+        - name: iam2-certs
+          secret:
+            defaultMode: 420
+            secretName: iam2-egress-certs
       imagePullSecrets:
       - name: greymatter-image-pull
 ---

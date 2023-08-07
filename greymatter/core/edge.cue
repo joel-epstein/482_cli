@@ -61,8 +61,11 @@ Edge: gsl.#Edge & {
 						clientId:      "greymatter"
 						// clientSecret:  "8Fg2f1zA0Ali3Q998Eks0v3j9I4cD8wD"
 						serviceUrl:    "http://20.242.228.143:10809"
+						callbackPath:  "/oauth"
+						additionalScopes: ["openid"]
 						realm:         "GAT"
 						provider_cluster: remote_jwks_upstream
+						
 					}
 					#secrets: {
 						client_secret: gsl.#KubernetesSecret & {

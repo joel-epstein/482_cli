@@ -64,8 +64,7 @@ Edge: gsl.#Edge & {
 						callbackPath:  "/oauth"
 						additionalScopes: ["openid"]
 						realm:         "GAT"
-						// provider_cluster: remote_jwks_upstream
-						provider_cluster: "123"
+						provider_cluster: remote_jwks_upstream
 						
 					}
 					#secrets: {

@@ -54,28 +54,28 @@ Edge: gsl.#Edge & {
 		(name): {
 			gsl.#HTTPListener
 			port: 10809
-			// filters: [
-			// 	gsl.#OIDCPipelineFilter & {
-			// 		#options: {
-			// 			provider_host: "https://iam2.greymatter.io"
-			// 			clientId:      "greymatter"
-			// 			clientSecret:  "8Fg2f1zA0Ali3Q998Eks0v3j9I4cD8wD"
-			// 			serviceUrl:    "http://20.253.7.227:10809"
-			// 			callbackPath:  "/oauth"
-			// 			additionalScopes: ["openid"]
-			// 			realm:         "GAT"
-			// 			provider_cluster: remote_jwks_upstream
+			filters: [
+				gsl.#OIDCPipelineFilter & {
+					#options: {
+						provider_host: "https://iam2.greymatter.io"
+						clientId:      "greymatter"
+						// clientSecret:  "8Fg2f1zA0Ali3Q998Eks0v3j9I4cD8wD"
+						serviceUrl:    "http://20.253.7.227:10809"
+						callbackPath:  "/oauth"
+						additionalScopes: ["openid"]
+						realm:         "GAT"
+						provider_cluster: remote_jwks_upstream
 						
-			// 		}
-			// 		// #secrets: {
-			// 		// 	client_secret: gsl.#KubernetesSecret & {
-			// 		// 	namespace: globals.globals.namespace
-			// 		// 	name:      "a-secret"
-			// 		// 	key:       "client-secret"
-			// 		// 	}
-			// 		// }
-			// 	},
-			// ]
+					}
+					#secrets: {
+						client_secret: gsl.#KubernetesSecret & {
+						namespace: globals.globals.namespace
+						name:      "a-secret"
+						key:       "client-secret"
+						}
+					}
+				},
+			]
 		}
 	}
 }

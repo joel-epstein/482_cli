@@ -60,7 +60,7 @@ Edge: gsl.#Edge & {
 						provider_host: "https://iam2.greymatter.io"
 						clientId:      "greymatter"
 						// clientSecret:  "8Fg2f1zA0Ali3Q998Eks0v3j9I4cD8wD"
-						serviceUrl:    "http://20.242.228.143:10809"
+						serviceUrl:    "http://40.88.219.115:10809"
 						callbackPath:  "/oauth"
 						additionalScopes: ["openid"]
 						realm:         "GAT"

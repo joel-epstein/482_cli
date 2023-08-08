@@ -65,6 +65,9 @@ Edge: gsl.#Edge & {
 						additionalScopes: ["openid"]
 						realm:         "GAT"
 						provider_cluster: remote_jwks_upstream
+						tls: {
+							insecureSkipVerify: true
+						}
 						
 					}
 					#secrets: {

@@ -60,7 +60,7 @@ Edge: gsl.#Edge & {
 						provider_host: "https://iam2.greymatter.io"
 						clientId:      "greymatter"
 						// clientSecret:  "8Fg2f1zA0Ali3Q998Eks0v3j9I4cD8wD"
-						serviceUrl:    "http://20.253.7.227:10809/services/blahblah/kiwi/"
+						serviceUrl:    "http://20.253.7.227:10809"
 						// callbackPath:  "/oauth"
 						// additionalScopes: ["openid"]
 						realm:         "GAT"
